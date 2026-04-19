@@ -1,5 +1,5 @@
 "use client";
 
-export default function Error() {
-  return <p>Something went wrong.</p>;
+export default function Error({ error }: { error: Error }) {
+  return <p>Something went wrong: {error.message}</p>;
 }

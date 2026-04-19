@@ -11,6 +11,7 @@ export default function NoteDetailsClient() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id as string),
+    refetchOnMount: false,
   });
 
   if (isLoading) return <p>Loading, please wait...</p>;
@@ -23,7 +24,7 @@ export default function NoteDetailsClient() {
         </div>
         <p className={css.tag}>{data.tag}</p>
         <p className={css.content}>{data.content}</p>
-        <p className={css.date}>{data.date}</p>
+        <p className={css.date}>{data.createdAt}</p>
       </div>
     </div>
   );
